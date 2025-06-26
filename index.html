@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Village Artesanal Burguer - O Sabor que Você Procura</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ff6b35" width="1200" height="600"/><circle fill="%23f7931e" cx="300" cy="150" r="80" opacity="0.3"/><circle fill="%23ff4757" cx="900" cy="400" r="120" opacity="0.2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #ff4757;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #25d366;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: linear-gradient(45deg, #fff5f5, #fff8f0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #ff6b35;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image i {
+            font-size: 8rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 5rem 0;
+            background: #fff;
+        }
+
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-btn {
+            padding: 0.8rem 1.5rem;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-btn.active,
+        .category-btn:hover {
+            background: #ff6b35;
+            color: white;
+            border-color: #ff6b35;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .item-image {
+            height: 200px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .item-content {
+            padding: 1.5rem;
+        }
+
+        .item-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #ff4757;
+        }
+
+        .order-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .order-btn:hover {
+            background: #22c55e;
+            transform: scale(1.05);
+        }
+
+        /* Info Section */
+        .info {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .info-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ff6b35;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #555;
+            color: #ccc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Menu Category Styles */
+        .menu-category {
+            display: none;
+        }
+
+        .menu-category.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                Village Artesanal Burguer
+            </div>
+            <nav class="nav-menu">
+                <a href="#home">Início</a>
+                <a href="#about">Nossa História</a>
+                <a href="#menu">Cardápio</a>
+                <a href="#contact">Contato</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Village Artesanal Burguer</h1>
+            <p>Onde cada hambúrguer é uma experiência única! Ingredientes frescos, receitas artesanais e muito amor em cada mordida.</p>
+            <div class="cta-buttons">
+                <a href="#menu" class="btn btn-primary">
+                    <i class="fas fa-utensils"></i> Ver Cardápio
+                </a>
+                <a href="https://wa.me/5514996459532?text=Olá! Gostaria de fazer um pedido!" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> Pedir Agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Nossa História</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Tudo começou com um sonho simples: criar o hambúrguer perfeito. No Village Artesanal Burguer, cada receita nasce da paixão pela gastronomia e do compromisso com a qualidade.</p>
+                    
+                    <p>Usamos apenas ingredientes frescos e selecionados, pães artesanais assados diariamente e carnes de primeira qualidade. Nossa equipe dedica todo o carinho para que cada pedido seja uma experiência inesquecível.</p>
+                    
+                    <p>Venha fazer parte da nossa família e descobrir por que somos referência em hambúrgueres artesanais na região. Aqui, tradição e inovação se encontram em cada mordida!</p>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-hamburger"></i>
+                    <h3 style="color: #ff6b35; margin-top: 1rem;">Feito com Amor</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Nosso Cardápio</h2>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" onclick="showCategory('novidades')">🔥 Novidades</button>
+                <button class="category-btn" onclick="showCategory('entradas')">🥗 Entradas</button>
+                <button class="category-btn" onclick="showCategory('massas')">🍝 Massas</button>
+                <button class="category-btn" onclick="showCategory('hotdog')">🌭 Hot Dog</button>
+                <button class="category-btn" onclick="showCategory('village')">👑 Village (150g)</button>
+                <button class="category-btn" onclick="showCategory('smash')">🔥 Smash (90g)</button>
+                <button class="category-btn" onclick="showCategory('gourmet')">⭐ Gourmet (150g)</button>
+                <button class="category-btn" onclick="showCategory('crocantes')">🥪 Crocantes</button>
+                <button class="category-btn" onclick="showCategory('xis')">🧀 Xis (90g)</button>
+                <button class="category-btn" onclick="showCategory('kids')">👶 Kids</button>
+                <button class="category-btn" onclick="showCategory('supremo')">💎 Supremo (150g)</button>
+                <button class="category-btn" onclick="showCategory('bebidas')">🥤 Bebidas</button>
+            </div>
+
+            <!-- Novidades -->
+            <div id="novidades" class="menu-category active">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-fire"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🔥 Lançamento Especial</div>
+                            <div class="item-description">Hambúrguer exclusivo com blend especial, queijo artesanal e molho secreto da casa</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 24,90</div>
+                                <button class="order-btn" onclick="orderItem('Lançamento Especial', '24,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-star"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">⭐ Village Supreme</div>
+                            <div class="item-description">Nossa mais nova criação com ingredientes premium selecionados</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 28,90</div>
+                                <button class="order-btn" onclick="orderItem('Village Supreme', '28,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entradas -->
+            <div id="entradas" class="menu-category">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-cheese"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🧀 Porção de Queijo</div>
+                            <div class="item-description">Queijo empanado crocante por fora e cremoso por dentro</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 18,90</div>
+                                <button class="order-btn" onclick="orderItem('Porção de Queijo', '18,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-drumstick-bite"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🍗 Chicken Wings</div>
+                            <div class="item-description">Asinhas de frango temperadas e douradas, acompanha molho especial</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 22,90</div>
+                                <button class="order-btn" onclick="orderItem('Chicken Wings', '22,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-seedling"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🥗 Salada Caesar</div>
+                            <div class="item-description">Mix de folhas, croutons, parmesão e molho caesar tradicional</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 16,90</div>
+                                <button class="order-btn" onclick="orderItem('Salada Caesar', '16,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Village (150g) -->
+            <div id="village" class="menu-category">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-crown"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">👑 Village Classic</div>
+                            <div class="item-description">Hambúrguer 150g, queijo, alface, tomate, cebola e molho especial</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 26,90</div>
+                                <button class="order-btn" onclick="orderItem('Village Classic', '26,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-fire"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🔥 Village Bacon</div>
+                            <div class="item-description">Hambúrguer 150g, bacon crocante, queijo cheddar e molho barbecue</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 29,90</div>
+                                <button class="order-btn" onclick="orderItem('Village Bacon', '29,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-pepper-hot"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🌶️ Village Picante</div>
+                            <div class="item-description">Hambúrguer 150g, pimenta jalapeño, queijo pepper jack e molho apimentado</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 28,90</div>
+                                <button class="order-btn" onclick="orderItem('Village Picante', '28,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smash (90g) -->
+            <div id="smash" class="menu-category">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-hamburger"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🍔 Smash Duplo</div>
+                            <div class="item-description">Dois hambúrgueres smash 90g, queijo americano, cebola caramelizada</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 22,90</div>
+                                <button class="order-btn" onclick="orderItem('Smash Duplo', '22,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-cheese"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🧀 Smash Cheese</div>
+                            <div class="item-description">Hambúrguer smash 90g, queijo derretido e molho especial</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 18,90</div>
+                                <button class="order-btn" onclick="orderItem('Smash Cheese', '18,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kids -->
+            <div id="kids" class="menu-category">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-child"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">👶 Mini Burger</div>
+                            <div class="item-description">Hambúrguer pequeno, queijo e batata frita - perfeito para crianças</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 14,90</div>
+                                <button class="order-btn" onclick="orderItem('Mini Burger', '14,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-drumstick-bite"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🍗 Nuggets Kids</div>
+                            <div class="item-description">6 nuggets crocantes com batata frita e molho ketchup</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 16,90</div>
+                                <button class="order-btn" onclick="orderItem('Nuggets Kids', '16,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bebidas -->
+            <div id="bebidas" class="menu-category">
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-glass-cheers"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🥤 Refrigerantes</div>
+                            <div class="item-description">Coca-Cola, Pepsi, Guaraná, Fanta - Lata 350ml</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 5,90</div>
+                                <button class="order-btn" onclick="orderItem('Refrigerante', '5,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-tint"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">💧 Água</div>
+                            <div class="item-description">Água mineral sem gás - 500ml</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 3,90</div>
+                                <button class="order-btn" onclick="orderItem('Água', '3,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-image"><i class="fas fa-coffee"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">☕ Sucos Naturais</div>
+                            <div class="item-description">Laranja, Limão, Acerola - 300ml</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 8,90</div>
+                                <button class="order-btn" onclick="orderItem('Suco Natural', '8,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="contact" class="info">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Informações</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Horário de Funcionamento</h3>
+                    <p>Segunda a Quinta: 18h às 23h</p>
+                    <p>Sexta e Sábado: 18h às 24h</p>
+                    <p>Domingo: 18h às 22h</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Localização</h3>
+                    <p>Rua das Delícias, 123</p>
+                    <p>Centro - Sua Cidade</p>
+                    <p>CEP: 12345-678</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Contato</h3>
+                    <p>📱 (14) 99645-9532</p>
+                    <p>📧 contato@villageburger.com</p>
+                    <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                        <a href="https://www.instagram.com/village_burguer/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5514996459532?"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Village Artesanal Burguer</h3>
+                    <p>O melhor hambúrguer artesanal da região. Feito com amor, servido com carinho.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <p><a href="#menu" style="color: #ccc; text-decoration: none;">Cardápio</a></p>
+                    <p><a href="#about" style="color: #ccc; text-decoration: none;">Nossa História</a></p>
+                    <p><a href="https://wa.me/5514996459532?" style="color: #ccc; text-decoration: none;">Contato</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Delivery</h3>
+                    <p>📱 WhatsApp: (14) 99645-9532</p>
+                    <p>⏰ Entrega em até 1h</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Village Artesanal Burguer. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu category switching
+        function showCategory(categoryId) {
+            // Hide all categories
+            const categories = document.querySelectorAll('.menu-category');
+            categories.forEach(cat => cat.classList.remove('active'));
+            
+            // Show selected category
+            document.getElementById(categoryId).classList.add('active');
+            
+            // Update button states
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Order item function
+        function orderItem(itemName, price) {
+            const message = `Olá! Gostaria de pedir: ${itemName} - R$ ${price}`;
+            const whatsappUrl = `https://wa.me/5514996459532?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            navMenu.style.flexDirection = 'column';
+            navMenu.style.position = 'absolute';
+            navMenu.style.top = '100%';
+            navMenu.style.left = '0';
+            navMenu.style.right = '0';
+            navMenu.style.background = 'linear-gradient(135deg, #ff6b35, #f7931e)';
+            navMenu.style.padding = '1rem';
+            navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navMenu.style.display = 'none';
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe menu items
+        document.querySelectorAll('.menu-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Add some sample items to fill the remaining categories
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add more items to categories that need them
+            addSampleItems();
+        });
+
+        function addSampleItems() {
+            // Hot Dog category
+            const hotdogCategory = document.getElementById('hotdog');
+            if (!hotdogCategory) {
+                const hotdogDiv = document.createElement('div');
+                hotdogDiv.id = 'hotdog';
+                hotdogDiv.className = 'menu-category';
+                hotdogDiv.innerHTML = `
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-hotdog"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🌭 Hot Dog Tradicional</div>
+                                <div class="item-description">Salsicha premium, pão artesanal, molho especial, batata palha</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 12,90</div>
+                                    <button class="order-btn" onclick="orderItem('Hot Dog Tradicional', '12,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-fire"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🔥 Hot Dog Bacon</div>
+                                <div class="item-description">Salsicha, bacon crocante, queijo cheddar, cebola caramelizada</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 16,90</div>
+                                    <button class="order-btn" onclick="orderItem('Hot Dog Bacon', '16,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.menu .container').appendChild(hotdogDiv);
+            }
+
+            // Massas category
+            const massasCategory = document.getElementById('massas');
+            if (!massasCategory) {
+                const massasDiv = document.createElement('div');
+                massasDiv.id = 'massas';
+                massasDiv.className = 'menu-category';
+                massasDiv.innerHTML = `
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-pizza-slice"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🍝 Macarrão Carbonara</div>
+                                <div class="item-description">Massa fresca, bacon, ovos, queijo parmesão e creme de leite</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 24,90</div>
+                                    <button class="order-btn" onclick="orderItem('Macarrão Carbonara', '24,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-leaf"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🍃 Penne ao Pesto</div>
+                                <div class="item-description">Penne com molho pesto artesanal, tomate seco e parmesão</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 22,90</div>
+                                    <button class="order-btn" onclick="orderItem('Penne ao Pesto', '22,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.menu .container').appendChild(massasDiv);
+            }
+
+            // Gourmet category
+            const gourmetCategory = document.getElementById('gourmet');
+            if (!gourmetCategory) {
+                const gourmetDiv = document.createElement('div');
+                gourmetDiv.id = 'gourmet';
+                gourmetDiv.className = 'menu-category';
+                gourmetDiv.innerHTML = `
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-gem"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">💎 Gourmet Trufa</div>
+                                <div class="item-description">Hambúrguer 150g, queijo brie, rúcula, tomate seco e maionese trufada</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 34,90</div>
+                                    <button class="order-btn" onclick="orderItem('Gourmet Trufa', '34,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-wine-glass"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🍷 Gourmet Mediterrâneo</div>
+                                <div class="item-description">Hambúrguer 150g, queijo de cabra, azeitonas, tomate confitado</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 32,90</div>
+                                    <button class="order-btn" onclick="orderItem('Gourmet Mediterrâneo', '32,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.menu .container').appendChild(gourmetDiv);
+            }
+
+            // Crocantes category
+            const crocantesCategory = document.getElementById('crocantes');
+            if (!crocantesCategory) {
+                const crocantesDiv = document.createElement('div');
+                crocantesDiv.id = 'crocantes';
+                crocantesDiv.className = 'menu-category';
+                crocantesDiv.innerHTML = `
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-drumstick-bite"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🍗 Chicken Crocante</div>
+                                <div class="item-description">Peito de frango empanado, alface, tomate, maionese especial</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 21,90</div>
+                                    <button class="order-btn" onclick="orderItem('Chicken Crocante', '21,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-fish"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🐟 Fish Crocante</div>
+                                <div class="item-description">Filé de peixe empanado, molho tártaro, alface americana</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 23,90</div>
+                                    <button class="order-btn" onclick="orderItem('Fish Crocante', '23,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.menu .container').appendChild(crocantesDiv);
+            }
+
+            // Xis category
+            const xisCategory = document.getElementById('xis');
+            if (!xisCategory) {
+                const xisDiv = document.createElement('div');
+                xisDiv.id = 'xis';
+                xisDiv.className = 'menu-category';
+                xisDiv.innerHTML = `
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-cheese"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🧀 Xis Burguer</div>
+                                <div class="item-description">Hambúrguer 90g, presunto, queijo, alface, tomate, ovo, batata palha</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 19,90</div>
+                                    <button class="order-btn" onclick="orderItem('Xis Burguer', '19,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-bacon"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🥓 Xis Bacon</div>
+                                <div class="item-description">Hambúrguer 90g, bacon, queijo, presunto, ovo, salada completa</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 22,90</div>
+                                    <button class="order-btn" onclick="orderItem('Xis Bacon', '22,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.menu .container').appendChild(xisDiv);
+            }
+
+            // Supremo category
+            const supremoCategory = document.getElementById('supremo');
+            if (!supremoCategory) {
+                const supremoDiv = document.createElement('div');
+                supremoDiv.id = 'supremo';
+                supremoDiv.className = 'menu-category';
+                supremoDiv.innerHTML = `
+                    <div class="menu-grid">
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-crown"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">👑 Supremo Royal</div>
+                                <div class="item-description">Duplo hambúrguer 150g, queijo suíço, bacon, cebola roxa, molho especial</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 39,90</div>
+                                    <button class="order-btn" onclick="orderItem('Supremo Royal', '39,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-image"><i class="fas fa-fire"></i></div>
+                            <div class="item-content">
+                                <div class="item-name">🔥 Supremo Inferno</div>
+                                <div class="item-description">Hambúrguer 150g, pimenta habanero, queijo pepper, bacon defumado</div>
+                                <div class="item-footer">
+                                    <div class="item-price">R$ 36,90</div>
+                                    <button class="order-btn" onclick="orderItem('Supremo Inferno', '36,90')">Pedir</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.querySelector('.menu .container').appendChild(supremoDiv);
+            }
+        }
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 107, 53, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #ff6b35, #f7931e)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
