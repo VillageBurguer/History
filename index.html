@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Village Artesanal Burguer - O Sabor que Você Procura</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,261 +14,472 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #1a1a1a;
+            background: #0a0a0a;
+            overflow-x: hidden;
         }
 
         /* Header */
         .header {
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            padding: 1rem 0;
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.95));
+            backdrop-filter: blur(20px);
+            padding: 1.5rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 3rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .logo i {
-            margin-right: 0.5rem;
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            margin-right: 1rem;
+            background: linear-gradient(135deg, #d4af37, #f4e04d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
             font-size: 2rem;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 3rem;
+            align-items: center;
         }
 
         .nav-menu a {
-            color: white;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-menu a:hover::before {
+            left: 100%;
         }
 
         .nav-menu a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
+            color: #d4af37;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23ff6b35" width="1200" height="600"/><circle fill="%23f7931e" cx="300" cy="150" r="80" opacity="0.3"/><circle fill="%23ff4757" cx="900" cy="400" r="120" opacity="0.2"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, 
+                rgba(10, 10, 10, 0.9), 
+                rgba(30, 30, 30, 0.8)), 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><filter id="noise"><feTurbulence baseFrequency="0.9" numOctaves="1" result="noise"/><feColorMatrix in="noise" type="saturate" values="0"/></filter></defs><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.05"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 2rem;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #d4af37, #f4e04d, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: #cccccc;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: #aaaaaa;
+            line-height: 1.8;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             justify-content: center;
+            margin-top: 3rem;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2rem;
+            padding: 1.2rem 3rem;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn-primary {
-            background: #ff4757;
-            color: white;
+            background: linear-gradient(135deg, #d4af37, #f4e04d);
+            color: #1a1a1a;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
 
         .btn-secondary {
-            background: #25d366;
+            background: linear-gradient(135deg, #25d366, #20c55a);
             color: white;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+        }
+
+        .floating-element:nth-child(1) { 
+            top: 20%; 
+            left: 10%; 
+            animation-delay: 0s; 
+        }
+        .floating-element:nth-child(2) { 
+            top: 60%; 
+            right: 15%; 
+            animation-delay: 2s; 
+        }
+        .floating-element:nth-child(3) { 
+            bottom: 30%; 
+            left: 20%; 
+            animation-delay: 4s; 
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(5deg); opacity: 0.6; }
         }
 
         /* About Section */
         .about {
-            padding: 5rem 0;
-            background: linear-gradient(45deg, #fff5f5, #fff8f0);
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 3rem;
+            position: relative;
+            z-index: 2;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            color: #ff6b35;
-            margin-bottom: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37, #f4e04d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4rem;
             position: relative;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
             border-radius: 2px;
         }
 
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 5rem;
             align-items: center;
         }
 
         .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            color: #cccccc;
+            font-size: 1.2rem;
+            line-height: 2;
+        }
+
+        .about-text p {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 3px solid rgba(212, 175, 55, 0.3);
         }
 
         .about-image {
             text-align: center;
+            position: relative;
+        }
+
+        .about-image .icon-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(139, 69, 19, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .about-image .icon-container::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, transparent, rgba(212, 175, 55, 0.1));
+            animation: rotate 20s linear infinite;
         }
 
         .about-image i {
-            font-size: 8rem;
-            color: #ff6b35;
-            margin-bottom: 1rem;
+            font-size: 5rem;
+            color: #d4af37;
+            z-index: 2;
+            position: relative;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* Menu Section */
         .menu {
-            padding: 5rem 0;
-            background: #fff;
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            position: relative;
         }
 
         .menu-categories {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
         }
 
         .category-btn {
-            padding: 0.8rem 1.5rem;
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 25px;
+            padding: 1rem 2rem;
+            background: rgba(30, 30, 30, 0.8);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
+            transition: all 0.4s ease;
+            font-weight: 600;
+            color: #cccccc;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
         }
 
         .category-btn.active,
         .category-btn:hover {
-            background: #ff6b35;
-            color: white;
-            border-color: #ff6b35;
+            background: linear-gradient(135deg, #d4af37, #f4e04d);
+            color: #1a1a1a;
+            border-color: #d4af37;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
         }
 
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            gap: 3rem;
         }
 
         .menu-item {
-            background: white;
-            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(40, 40, 40, 0.8));
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .menu-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border-color: rgba(212, 175, 55, 0.3);
         }
 
         .item-image {
-            height: 200px;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            height: 250px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(139, 69, 19, 0.2));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 3rem;
+            color: #d4af37;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .menu-item:hover .item-image::before {
+            transform: translateX(100%);
         }
 
         .item-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .item-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ff6b35;
-            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 1rem;
         }
 
         .item-description {
-            color: #666;
-            margin-bottom: 1rem;
-            line-height: 1.6;
+            color: #aaaaaa;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1rem;
         }
 
         .item-footer {
@@ -277,146 +489,154 @@
         }
 
         .item-price {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #ff4757;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #d4af37;
         }
 
         .order-btn {
-            background: #25d366;
+            background: linear-gradient(135deg, #25d366, #20c55a);
             color: white;
             border: none;
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 1.8rem;
             border-radius: 25px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .order-btn:hover {
-            background: #22c55e;
+            background: linear-gradient(135deg, #20c55a, #16a34a);
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
         }
 
         /* Info Section */
         .info {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            color: white;
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #d4af37, #f4e04d);
+            color: #1a1a1a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(26,26,26,0.1)"/></svg>');
+            background-size: 50px 50px;
+            pointer-events: none;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
         }
 
         .info-card {
             text-align: center;
-            padding: 2rem;
-            background: rgba(255,255,255,0.1);
-            border-radius: 15px;
+            padding: 3rem 2rem;
+            background: rgba(26, 26, 26, 0.1);
+            border-radius: 20px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(26, 26, 26, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            background: rgba(26, 26, 26, 0.15);
         }
 
         .info-card i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
         }
 
         .info-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .info-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
         }
 
         /* Footer */
         .footer {
-            background: #333;
-            color: white;
-            padding: 3rem 0 1rem;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            color: #cccccc;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
+            gap: 4rem;
+            margin-bottom: 3rem;
         }
 
         .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #d4af37;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+        .footer-section p {
             margin-bottom: 1rem;
-            color: #ff6b35;
+            line-height: 1.6;
+        }
+
+        .footer-section a {
+            color: #aaaaaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
         .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
+            color: #cccccc;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            color: #ff6b35;
+            color: #d4af37;
+            transform: translateY(-3px);
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
-            border-top: 1px solid #555;
-            color: #ccc;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            color: #888888;
         }
 
         /* Menu Category Styles */
@@ -427,6 +647,94 @@
         .menu-category.active {
             display: block;
         }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Premium Touches */
+        .premium-border {
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(139, 69, 19, 0.1)) padding-box,
+                        linear-gradient(135deg, #d4af37, #f4e04d) border-box;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
+            }
+            
+            .logo-image {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .nav-menu {
+                gap: 1.5rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #d4af37, #f4e04d);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #f4e04d, #d4af37);
+        }
     </style>
 </head>
 <body>
@@ -434,7 +742,7 @@
     <header class="header">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-crown"></i>
+                <div class="logo-image">👑</div>
                 Village Artesanal Burguer
             </div>
             <nav class="nav-menu">
@@ -443,20 +751,23 @@
                 <a href="#menu">Cardápio</a>
                 <a href="#contact">Contato</a>
             </nav>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="floating-elements">
+            <div class="floating-element">🍔</div>
+            <div class="floating-element">👑</div>
+            <div class="floating-element">⭐</div>
+        </div>
         <div class="hero-content">
             <h1>Village Artesanal Burguer</h1>
-            <p>Onde cada hambúrguer é uma experiência única! Ingredientes frescos, receitas artesanais e muito amor em cada mordida.</p>
+            <div class="subtitle">Experiência Gastronômica Premium</div>
+            <p>Onde cada hambúrguer é uma obra-prima culinária. Ingredientes selecionados, técnicas artesanais e a paixão pela excelência em cada criação.</p>
             <div class="cta-buttons">
                 <a href="#menu" class="btn btn-primary">
-                    <i class="fas fa-utensils"></i> Ver Cardápio
+                    <i class="fas fa-utensils"></i> Explorar Cardápio
                 </a>
                 <a href="https://wa.me/5514996459532?text=Olá! Gostaria de fazer um pedido!" class="btn btn-secondary">
                     <i class="fab fa-whatsapp"></i> Pedir Agora
@@ -468,18 +779,20 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Nossa História</h2>
+            <h2 class="section-title">Nossa Essência</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Tudo começou com um sonho simples: criar o hambúrguer perfeito. No Village Artesanal Burguer, cada receita nasce da paixão pela gastronomia e do compromisso com a qualidade.</p>
+                    <p>Nossa jornada começou com um sonho audacioso: redefinir o conceito de hambúrguer artesanal. No Village, cada receita é uma celebração da gastronomia premium, onde tradição e inovação se encontram.</p>
                     
-                    <p>Usamos apenas ingredientes frescos e selecionados, pães artesanais assados diariamente e carnes de primeira qualidade. Nossa equipe dedica todo o carinho para que cada pedido seja uma experiência inesquecível.</p>
+                    <p>Utilizamos exclusivamente ingredientes de origem controlada, pães artesanais produzidos diariamente em nossa padaria própria e carnes de primeira qualidade. Nossa equipe de chefs dedica-se meticulosamente a cada criação.</p>
                     
-                    <p>Venha fazer parte da nossa família e descobrir por que somos referência em hambúrgueres artesanais na região. Aqui, tradição e inovação se encontram em cada mordida!</p>
+                    <p>Junte-se à nossa família gastronômica e descubra por que somos reconhecidos como a referência absoluta em hambúrgueres artesanais premium. Aqui, cada mordida é uma experiência transformadora.</p>
                 </div>
                 <div class="about-image">
-                    <i class="fas fa-hamburger"></i>
-                    <h3 style="color: #ff6b35; margin-top: 1rem;">Feito com Amor</h3>
+                    <div class="icon-container">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <h3 style="color: #d4af37; font-family: 'Playfair Display', serif;">Artesania & Paixão</h3>
                 </div>
             </div>
         </div>
@@ -488,45 +801,40 @@
     <!-- Menu Section -->
     <section id="menu" class="menu">
         <div class="container">
-            <h2 class="section-title">Nosso Cardápio</h2>
+            <h2 class="section-title">Cardápio Exclusivo</h2>
             
             <div class="menu-categories">
                 <button class="category-btn active" onclick="showCategory('novidades')">🔥 Novidades</button>
                 <button class="category-btn" onclick="showCategory('entradas')">🥗 Entradas</button>
-                <button class="category-btn" onclick="showCategory('massas')">🍝 Massas</button>
-                <button class="category-btn" onclick="showCategory('hotdog')">🌭 Hot Dog</button>
-                <button class="category-btn" onclick="showCategory('village')">👑 Village (150g)</button>
-                <button class="category-btn" onclick="showCategory('smash')">🔥 Smash (90g)</button>
-                <button class="category-btn" onclick="showCategory('gourmet')">⭐ Gourmet (150g)</button>
-                <button class="category-btn" onclick="showCategory('crocantes')">🥪 Crocantes</button>
-                <button class="category-btn" onclick="showCategory('xis')">🧀 Xis (90g)</button>
-                <button class="category-btn" onclick="showCategory('kids')">👶 Kids</button>
-                <button class="category-btn" onclick="showCategory('supremo')">💎 Supremo (150g)</button>
+                <button class="category-btn" onclick="showCategory('village')">👑 Village Premium</button>
+                <button class="category-btn" onclick="showCategory('smash')">🔥 Smash Collection</button>
+                <button class="category-btn" onclick="showCategory('gourmet')">⭐ Gourmet Selection</button>
+                <button class="category-btn" onclick="showCategory('supremo')">💎 Supremo Elite</button>
                 <button class="category-btn" onclick="showCategory('bebidas')">🥤 Bebidas</button>
             </div>
 
             <!-- Novidades -->
             <div id="novidades" class="menu-category active">
                 <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item premium-border">
                         <div class="item-image"><i class="fas fa-fire"></i></div>
                         <div class="item-content">
-                            <div class="item-name">🔥 Lançamento Especial</div>
-                            <div class="item-description">Hambúrguer exclusivo com blend especial, queijo artesanal e molho secreto da casa</div>
+                            <div class="item-name">🔥 Signature Exclusive</div>
+                            <div class="item-description">Nossa mais nova criação premium com blend exclusivo, queijo artesanal envelhecido e molho secreto da casa</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 24,90</div>
-                                <button class="order-btn" onclick="orderItem('Lançamento Especial', '24,90')">Pedir</button>
+                                <div class="item-price">R$ 34,90</div>
+                                <button class="order-btn" onclick="orderItem('Signature Exclusive', '34.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-star"></i></div>
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-crown"></i></div>
                         <div class="item-content">
-                            <div class="item-name">⭐ Village Supreme</div>
-                            <div class="item-description">Nossa mais nova criação com ingredientes premium selecionados</div>
+                            <div class="item-name">👑 Village Royal</div>
+                            <div class="item-description">Experiência gastronômica única com ingredientes importados e técnicas de alta gastronomia</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 28,90</div>
-                                <button class="order-btn" onclick="orderItem('Village Supreme', '28,90')">Pedir</button>
+                                <div class="item-price">R$ 42,90</div>
+                                <button class="order-btn" onclick="orderItem('Village Royal', '42.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
@@ -536,131 +844,137 @@
             <!-- Entradas -->
             <div id="entradas" class="menu-category">
                 <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-cheese"></i></div>
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-leaf"></i></div>
                         <div class="item-content">
-                            <div class="item-name">🧀 Porção de Queijo</div>
-                            <div class="item-description">Queijo empanado crocante por fora e cremoso por dentro</div>
+                            <div class="item-name">🥗 Salada Caprese</div>
+                            <div class="item-description">Tomates frescos, muçarela de búfala, manjericão e azeite de oliva extra virgem</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 18,90</div>
-                                <button class="order-btn" onclick="orderItem('Porção de Queijo', '18,90')">Pedir</button>
+                                <div class="item-price">R$ 24,90</div>
+                                <button class="order-btn" onclick="orderItem('Salada Caprese', '24.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item premium-border">
                         <div class="item-image"><i class="fas fa-drumstick-bite"></i></div>
                         <div class="item-content">
-                            <div class="item-name">🍗 Chicken Wings</div>
-                            <div class="item-description">Asinhas de frango temperadas e douradas, acompanha molho especial</div>
+                            <div class="item-name">🍗 Asinhas Crocantes</div>
+                            <div class="item-description">Asas de frango crocantes com molho picante artesanal</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 22,90</div>
-                                <button class="order-btn" onclick="orderItem('Chicken Wings', '22,90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-seedling"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🥗 Salada Caesar</div>
-                            <div class="item-description">Mix de folhas, croutons, parmesão e molho caesar tradicional</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 16,90</div>
-                                <button class="order-btn" onclick="orderItem('Salada Caesar', '16,90')">Pedir</button>
+                                <div class="item-price">R$ 19,90</div>
+                                <button class="order-btn" onclick="orderItem('Asinhas Crocantes', '19.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Village (150g) -->
+            <!-- Village Premium -->
             <div id="village" class="menu-category">
                 <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-crown"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">👑 Village Classic</div>
-                            <div class="item-description">Hambúrguer 150g, queijo, alface, tomate, cebola e molho especial</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 26,90</div>
-                                <button class="order-btn" onclick="orderItem('Village Classic', '26,90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-fire"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🔥 Village Bacon</div>
-                            <div class="item-description">Hambúrguer 150g, bacon crocante, queijo cheddar e molho barbecue</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 29,90</div>
-                                <button class="order-btn" onclick="orderItem('Village Bacon', '29,90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-pepper-hot"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🌶️ Village Picante</div>
-                            <div class="item-description">Hambúrguer 150g, pimenta jalapeño, queijo pepper jack e molho apimentado</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 28,90</div>
-                                <button class="order-btn" onclick="orderItem('Village Picante', '28,90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Smash (90g) -->
-            <div id="smash" class="menu-category">
-                <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item premium-border">
                         <div class="item-image"><i class="fas fa-hamburger"></i></div>
                         <div class="item-content">
-                            <div class="item-name">🍔 Smash Duplo</div>
-                            <div class="item-description">Dois hambúrgueres smash 90g, queijo americano, cebola caramelizada</div>
+                            <div class="item-name">👑 Classic Village</div>
+                            <div class="item-description">Hambúrguer de Angus, queijo cheddar artesanal, bacon crocante e molho da casa</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 22,90</div>
-                                <button class="order-btn" onclick="orderItem('Smash Duplo', '22,90')">Pedir</button>
+                                <div class="item-price">R$ 32,90</div>
+                                <button class="order-btn" onclick="orderItem('Classic Village', '32.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item premium-border">
                         <div class="item-image"><i class="fas fa-cheese"></i></div>
                         <div class="item-content">
-                            <div class="item-name">🧀 Smash Cheese</div>
-                            <div class="item-description">Hambúrguer smash 90g, queijo derretido e molho especial</div>
+                            <div class="item-name">🧀 Cheese Explosion</div>
+                            <div class="item-description">Blend especial com mix de queijos premium e cebolas caramelizadas</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 18,90</div>
-                                <button class="order-btn" onclick="orderItem('Smash Cheese', '18,90')">Pedir</button>
+                                <div class="item-price">R$ 36,90</div>
+                                <button class="order-btn" onclick="orderItem('Cheese Explosion', '36.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Kids -->
-            <div id="kids" class="menu-category">
+            <!-- Smash Collection -->
+            <div id="smash" class="menu-category">
                 <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-child"></i></div>
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-fire-alt"></i></div>
                         <div class="item-content">
-                            <div class="item-name">👶 Mini Burger</div>
-                            <div class="item-description">Hambúrguer pequeno, queijo e batata frita - perfeito para crianças</div>
+                            <div class="item-name">🔥 Smash Classic</div>
+                            <div class="item-description">Dois hambúrgueres smash, queijo cheddar, alface, tomate e maionese especial</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 14,90</div>
-                                <button class="order-btn" onclick="orderItem('Mini Burger', '14,90')">Pedir</button>
+                                <div class="item-price">R$ 27,90</div>
+                                <button class="order-btn" onclick="orderItem('Smash Classic', '27.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-drumstick-bite"></i></div>
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-pepper-hot"></i></div>
                         <div class="item-content">
-                            <div class="item-name">🍗 Nuggets Kids</div>
-                            <div class="item-description">6 nuggets crocantes com batata frita e molho ketchup</div>
+                            <div class="item-name">🌶️ Spicy Smash</div>
+                            <div class="item-description">Hambúrguer smash com molho picante, jalapeños e queijo pepper jack</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 16,90</div>
-                                <button class="order-btn" onclick="orderItem('Nuggets Kids', '16,90')">Pedir</button>
+                                <div class="item-price">R$ 29,90</div>
+                                <button class="order-btn" onclick="orderItem('Spicy Smash', '29.90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gourmet Selection -->
+            <div id="gourmet" class="menu-category">
+                <div class="menu-grid">
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-star"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">⭐ Truffle Delight</div>
+                            <div class="item-description">Hambúrguer com infusão de trufas, queijo brie e rúcula</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 39,90</div>
+                                <button class="order-btn" onclick="orderItem('Truffle Delight', '39.90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-bacon"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">🥓 Bacon Gourmet</div>
+                            <div class="item-description">Hambúrguer com bacon artesanal, queijo gorgonzola e molho de mostarda</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 37,90</div>
+                                <button class="order-btn" onclick="orderItem('Bacon Gourmet', '37.90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supremo Elite -->
+            <div id="supremo" class="menu-category">
+                <div class="menu-grid">
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-gem"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">💎 Supremo Prime</div>
+                            <div class="item-description">Hambúrguer Wagyu, foie gras, molho de vinho tinto e cebolas caramelizadas</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 59,90</div>
+                                <button class="order-btn" onclick="orderItem('Supremo Prime', '59.90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-crown"></i></div>
+                        <div class="item-content">
+                            <div class="item-name">👑 Royal Elite</div>
+                            <div class="item-description">Blend premium com queijo artesanal, trufas negras e molho especial</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 54,90</div>
+                                <button class="order-btn" onclick="orderItem('Royal Elite', '54.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
@@ -670,36 +984,25 @@
             <!-- Bebidas -->
             <div id="bebidas" class="menu-category">
                 <div class="menu-grid">
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-glass-cheers"></i></div>
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-glass-martini"></i></div>
                         <div class="item-content">
-                            <div class="item-name">🥤 Refrigerantes</div>
-                            <div class="item-description">Coca-Cola, Pepsi, Guaraná, Fanta - Lata 350ml</div>
+                            <div class="item-name">🥤 Milkshake Artesanal</div>
+                            <div class="item-description">Milkshake cremoso de baunilha com chantilly artesanal</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 5,90</div>
-                                <button class="order-btn" onclick="orderItem('Refrigerante', '5,90')">Pedir</button>
+                                <div class="item-price">R$ 18,90</div>
+                                <button class="order-btn" onclick="orderItem('Milkshake Artesanal', '18.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-tint"></i></div>
+                    <div class="menu-item premium-border">
+                        <div class="item-image"><i class="fas fa-beer"></i></div>
                         <div class="item-content">
-                            <div class="item-name">💧 Água</div>
-                            <div class="item-description">Água mineral sem gás - 500ml</div>
+                            <div class="item-name">🍺 Cerveja Artesanal</div>
+                            <div class="item-description">Cerveja IPA artesanal com notas cítricas</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 3,90</div>
-                                <button class="order-btn" onclick="orderItem('Água', '3,90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <div class="item-image"><i class="fas fa-coffee"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">☕ Sucos Naturais</div>
-                            <div class="item-description">Laranja, Limão, Acerola - 300ml</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 8,90</div>
-                                <button class="order-btn" onclick="orderItem('Suco Natural', '8,90')">Pedir</button>
+                                <div class="item-price">R$ 22,90</div>
+                                <button class="order-btn" onclick="orderItem('Cerveja Artesanal', '22.90')">Pedir</button>
                             </div>
                         </div>
                     </div>
@@ -711,31 +1014,25 @@
     <!-- Info Section -->
     <section id="contact" class="info">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Informações</h2>
+            <h2 class="section-title">Entre em Contato</h2>
             <div class="info-grid">
                 <div class="info-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Horário de Funcionamento</h3>
-                    <p>Segunda a Quinta: 18h às 23h</p>
-                    <p>Sexta e Sábado: 18h às 24h</p>
-                    <p>Domingo: 18h às 22h</p>
-                </div>
-                <div class="info-card">
                     <i class="fas fa-map-marker-alt"></i>
-                    <h3>Localização</h3>
-                    <p>Rua das Delícias, 123</p>
-                    <p>Centro - Sua Cidade</p>
-                    <p>CEP: 12345-678</p>
+                    <h3>Nosso Endereço</h3>
+                    <p>Rua Gastronômica, 123</p>
+                    <p>São Paulo, SP</p>
                 </div>
                 <div class="info-card">
-                    <i class="fas fa-phone"></i>
+                    <i class="fas fa-phone-alt"></i>
                     <h3>Contato</h3>
-                    <p>📱 (14) 99645-9532</p>
-                    <p>📧 contato@villageburger.com</p>
-                    <div class="social-links" style="justify-content: center; margin-top: 1rem;">
-                        <a href="https://www.instagram.com/village_burguer/"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/5514996459532?"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+                    <p>(14) 99645-9532</p>
+                    <p>contato@villageburguer.com.br</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Horário</h3>
+                    <p>Seg-Sáb: 11h às 23h</p>
+                    <p>Dom: 12h às 22h</p>
                 </div>
             </div>
         </div>
@@ -746,19 +1043,20 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Village Artesanal Burguer</h3>
-                    <p>O melhor hambúrguer artesanal da região. Feito com amor, servido com carinho.</p>
+                    <h3>Sobre Nós</h3>
+                    <p>Village Artesanal Burguer é mais do que uma hamburgueria, é uma experiência gastronômica única.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Links Rápidos</h3>
-                    <p><a href="#menu" style="color: #ccc; text-decoration: none;">Cardápio</a></p>
-                    <p><a href="#about" style="color: #ccc; text-decoration: none;">Nossa História</a></p>
-                    <p><a href="https://wa.me/5514996459532?" style="color: #ccc; text-decoration: none;">Contato</a></p>
+                    <p><a href="#home">Início</a></p>
+                    <p><a href="#about">Nossa História</a></p>
+                    <p><a href="#menu">Cardápio</a></p>
+                    <p><a href="#contact">Contato</a></p>
                 </div>
                 <div class="footer-section">
-                    <h3>Delivery</h3>
-                    <p>📱 WhatsApp: (14) 99645-9532</p>
-                    <p>⏰ Entrega em até 1h</p>
+                    <h3>Siga-nos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -768,315 +1066,24 @@
     </footer>
 
     <script>
-        // Menu category switching
         function showCategory(categoryId) {
-            // Hide all categories
-            const categories = document.querySelectorAll('.menu-category');
-            categories.forEach(cat => cat.classList.remove('active'));
-            
-            // Show selected category
+            // Remove active class from all categories and buttons
+            document.querySelectorAll('.menu-category').forEach(category => {
+                category.classList.remove('active');
+            });
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Add active class to selected category and button
             document.getElementById(categoryId).classList.add('active');
-            
-            // Update button states
-            const buttons = document.querySelectorAll('.category-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            document.querySelector(`button[onclick="showCategory('${categoryId}')"]`).classList.add('active');
         }
 
-        // Order item function
         function orderItem(itemName, price) {
-            const message = `Olá! Gostaria de pedir: ${itemName} - R$ ${price}`;
-            const whatsappUrl = `https://wa.me/5514996459532?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            const message = encodeURIComponent(`Olá! Gostaria de pedir: ${itemName} - R$ ${price}`);
+            window.location.href = `https://wa.me/5514996459532?text=${message}`;
         }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.position = 'absolute';
-            navMenu.style.top = '100%';
-            navMenu.style.left = '0';
-            navMenu.style.right = '0';
-            navMenu.style.background = 'linear-gradient(135deg, #ff6b35, #f7931e)';
-            navMenu.style.padding = '1rem';
-            navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    navMenu.style.display = 'none';
-                }
-            });
-        });
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, observerOptions);
-
-        // Observe menu items
-        document.querySelectorAll('.menu-item').forEach(item => {
-            observer.observe(item);
-        });
-
-        // Add some sample items to fill the remaining categories
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add more items to categories that need them
-            addSampleItems();
-        });
-
-        function addSampleItems() {
-            // Hot Dog category
-            const hotdogCategory = document.getElementById('hotdog');
-            if (!hotdogCategory) {
-                const hotdogDiv = document.createElement('div');
-                hotdogDiv.id = 'hotdog';
-                hotdogDiv.className = 'menu-category';
-                hotdogDiv.innerHTML = `
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-hotdog"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🌭 Hot Dog Tradicional</div>
-                                <div class="item-description">Salsicha premium, pão artesanal, molho especial, batata palha</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 12,90</div>
-                                    <button class="order-btn" onclick="orderItem('Hot Dog Tradicional', '12,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-fire"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🔥 Hot Dog Bacon</div>
-                                <div class="item-description">Salsicha, bacon crocante, queijo cheddar, cebola caramelizada</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 16,90</div>
-                                    <button class="order-btn" onclick="orderItem('Hot Dog Bacon', '16,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                document.querySelector('.menu .container').appendChild(hotdogDiv);
-            }
-
-            // Massas category
-            const massasCategory = document.getElementById('massas');
-            if (!massasCategory) {
-                const massasDiv = document.createElement('div');
-                massasDiv.id = 'massas';
-                massasDiv.className = 'menu-category';
-                massasDiv.innerHTML = `
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-pizza-slice"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🍝 Macarrão Carbonara</div>
-                                <div class="item-description">Massa fresca, bacon, ovos, queijo parmesão e creme de leite</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 24,90</div>
-                                    <button class="order-btn" onclick="orderItem('Macarrão Carbonara', '24,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-leaf"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🍃 Penne ao Pesto</div>
-                                <div class="item-description">Penne com molho pesto artesanal, tomate seco e parmesão</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 22,90</div>
-                                    <button class="order-btn" onclick="orderItem('Penne ao Pesto', '22,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                document.querySelector('.menu .container').appendChild(massasDiv);
-            }
-
-            // Gourmet category
-            const gourmetCategory = document.getElementById('gourmet');
-            if (!gourmetCategory) {
-                const gourmetDiv = document.createElement('div');
-                gourmetDiv.id = 'gourmet';
-                gourmetDiv.className = 'menu-category';
-                gourmetDiv.innerHTML = `
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-gem"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">💎 Gourmet Trufa</div>
-                                <div class="item-description">Hambúrguer 150g, queijo brie, rúcula, tomate seco e maionese trufada</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 34,90</div>
-                                    <button class="order-btn" onclick="orderItem('Gourmet Trufa', '34,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-wine-glass"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🍷 Gourmet Mediterrâneo</div>
-                                <div class="item-description">Hambúrguer 150g, queijo de cabra, azeitonas, tomate confitado</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 32,90</div>
-                                    <button class="order-btn" onclick="orderItem('Gourmet Mediterrâneo', '32,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                document.querySelector('.menu .container').appendChild(gourmetDiv);
-            }
-
-            // Crocantes category
-            const crocantesCategory = document.getElementById('crocantes');
-            if (!crocantesCategory) {
-                const crocantesDiv = document.createElement('div');
-                crocantesDiv.id = 'crocantes';
-                crocantesDiv.className = 'menu-category';
-                crocantesDiv.innerHTML = `
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-drumstick-bite"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🍗 Chicken Crocante</div>
-                                <div class="item-description">Peito de frango empanado, alface, tomate, maionese especial</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 21,90</div>
-                                    <button class="order-btn" onclick="orderItem('Chicken Crocante', '21,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-fish"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🐟 Fish Crocante</div>
-                                <div class="item-description">Filé de peixe empanado, molho tártaro, alface americana</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 23,90</div>
-                                    <button class="order-btn" onclick="orderItem('Fish Crocante', '23,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                document.querySelector('.menu .container').appendChild(crocantesDiv);
-            }
-
-            // Xis category
-            const xisCategory = document.getElementById('xis');
-            if (!xisCategory) {
-                const xisDiv = document.createElement('div');
-                xisDiv.id = 'xis';
-                xisDiv.className = 'menu-category';
-                xisDiv.innerHTML = `
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-cheese"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🧀 Xis Burguer</div>
-                                <div class="item-description">Hambúrguer 90g, presunto, queijo, alface, tomate, ovo, batata palha</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 19,90</div>
-                                    <button class="order-btn" onclick="orderItem('Xis Burguer', '19,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-bacon"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🥓 Xis Bacon</div>
-                                <div class="item-description">Hambúrguer 90g, bacon, queijo, presunto, ovo, salada completa</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 22,90</div>
-                                    <button class="order-btn" onclick="orderItem('Xis Bacon', '22,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                document.querySelector('.menu .container').appendChild(xisDiv);
-            }
-
-            // Supremo category
-            const supremoCategory = document.getElementById('supremo');
-            if (!supremoCategory) {
-                const supremoDiv = document.createElement('div');
-                supremoDiv.id = 'supremo';
-                supremoDiv.className = 'menu-category';
-                supremoDiv.innerHTML = `
-                    <div class="menu-grid">
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-crown"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">👑 Supremo Royal</div>
-                                <div class="item-description">Duplo hambúrguer 150g, queijo suíço, bacon, cebola roxa, molho especial</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 39,90</div>
-                                    <button class="order-btn" onclick="orderItem('Supremo Royal', '39,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item">
-                            <div class="item-image"><i class="fas fa-fire"></i></div>
-                            <div class="item-content">
-                                <div class="item-name">🔥 Supremo Inferno</div>
-                                <div class="item-description">Hambúrguer 150g, pimenta habanero, queijo pepper, bacon defumado</div>
-                                <div class="item-footer">
-                                    <div class="item-price">R$ 36,90</div>
-                                    <button class="order-btn" onclick="orderItem('Supremo Inferno', '36,90')">Pedir</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                document.querySelector('.menu .container').appendChild(supremoDiv);
-            }
-        }
-
-        // Header background change on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 107, 53, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #ff6b35, #f7931e)';
-                header.style.backdropFilter = 'none';
-            }
-        });
     </script>
 </body>
 </html>
