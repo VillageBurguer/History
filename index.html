@@ -716,7 +716,54 @@
             .container {
                 padding: 0 1.5rem;
             }
+            
         }
+        .item-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        }
+        .item-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        }
+        .menu-grid {
+        display: flex;
+        justify-content: center; /* Centraliza o card horizontalmente */
+        flex-wrap: wrap;
+        gap: 20px; /* Espaçamento entre cards, caso tenha mais de um */
+        padding: 20px;
+        }
+
+        .menu-item {
+        max-width: 400px; /* Largura máxima do card */
+        width: 100%;
+        }
+
+        .item-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .item-price {
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+        }
+
+        .order-btn-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        }
+
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
@@ -739,20 +786,21 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-image">👑</div>
-                Village Artesanal Burguer
-            </div>
-            <nav class="nav-menu">
-                <a href="#home">Início</a>
-                <a href="#about">Nossa História</a>
-                <a href="#menu">Cardápio</a>
-                <a href="#contact">Contato</a>
-            </nav>
+   <header class="header">
+    <div class="nav-container">
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo Village Artesanal Burguer" class="logo-image" />
+            Village Artesanal Burguer
         </div>
-    </header>
+        <nav class="nav-menu">
+            <a href="#home">Início</a>
+            <a href="#about">Nossa História</a>
+            <a href="#menu">Cardápio</a>
+            <a href="#contact">Contato</a>
+        </nav>
+    </div>
+</header>
+
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -809,94 +857,226 @@
             <div class="menu-categories">
                 <button class="category-btn active" onclick="showCategory('novidades')">🔥 Novidades</button>
                 <button class="category-btn" onclick="showCategory('entradas')">🥗 Entradas</button>
-                <button class="category-btn" onclick="showCategory('village')">👑 Village Premium</button>
-                <button class="category-btn" onclick="showCategory('smash')">🔥 Smash Collection</button>
-                <button class="category-btn" onclick="showCategory('gourmet')">⭐ Gourmet Selection</button>
-                <button class="category-btn" onclick="showCategory('supremo')">💎 Supremo Elite</button>
+                <button class="category-btn" onclick="showCategory('village')">👑 Massas</button>
+                <button class="category-btn" onclick="showCategory('smash')">🔥 Hot Dog</button>
+                <button class="category-btn" onclick="showCategory('gourmet')">⭐ Village </button>
+                <button class="category-btn" onclick="showCategory('supremo')">💎 Outros </button>
                 <button class="category-btn" onclick="showCategory('bebidas')">🥤 Bebidas</button>
             </div>
 
             <!-- Novidades -->
             <div id="novidades" class="menu-category active">
-                <div class="menu-grid">
-                    <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-fire"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🔥 Signature Exclusive</div>
-                            <div class="item-description">Nossa mais nova criação premium com blend exclusivo, queijo artesanal envelhecido e molho secreto da casa</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 34,90</div>
-                                <button class="order-btn" onclick="orderItem('Signature Exclusive', '34.90')">Pedir</button>
-                            </div>
-                        </div>
+            <div class="menu-grid">
+                <div class="menu-item premium-border">
+                <div class="item-image">
+                    <img src="novidade.png" alt="HOT DOG COSTELA" class="item-img" />
+                </div>
+                <div class="item-content">
+                    <div class="item-name">🔥 HOT DOG COSTELA</div>
+                    <div class="item-description">
+                    Pão de hot dog, 2 salsichas, costela desfiada, tomate em cubos, ketchup, maionese, mostarda e batata palha
                     </div>
-                    <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-crown"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">👑 Village Royal</div>
-                            <div class="item-description">Experiência gastronômica única com ingredientes importados e técnicas de alta gastronomia</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 42,90</div>
-                                <button class="order-btn" onclick="orderItem('Village Royal', '42.90')">Pedir</button>
-                            </div>
-                        </div>
+                    <div class="item-footer">
+                    <div class="item-price">R$ 28,90</div>
+                    <div class="order-btn-wrapper">
+                        <button class="order-btn" onclick="orderItem('HOT DOG COSTELA', '28.90')">Pedir</button>
+                    </div>
                     </div>
                 </div>
+                </div>
             </div>
+            </div>
+
+
 
             <!-- Entradas -->
             <div id="entradas" class="menu-category">
-                <div class="menu-grid">
-                    <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-leaf"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🥗 Salada Caprese</div>
-                            <div class="item-description">Tomates frescos, muçarela de búfala, manjericão e azeite de oliva extra virgem</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 24,90</div>
-                                <button class="order-btn" onclick="orderItem('Salada Caprese', '24.90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-drumstick-bite"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🍗 Asinhas Crocantes</div>
-                            <div class="item-description">Asas de frango crocantes com molho picante artesanal</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 19,90</div>
-                                <button class="order-btn" onclick="orderItem('Asinhas Crocantes', '19.90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="menu-grid">
+
+            <!-- Salada Caprese -->
+            <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="batata100g.png" alt="Salada Caprese" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> BATATA FRITA 100G</div>
+                <div class="item-description">Individual</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 6,00</div>
+                <button class="order-btn" onclick="orderItem('BATATA FRITA 100G', 'R$ 6,00')">Pedir</button>
                 </div>
             </div>
+            </div>
+
+            <!-- Asinhas Crocantes -->
+            <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="BATATAFRITA300g.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> BATATA FRITA 300G</div>
+                <div class="item-description">Serve até duas pessoas</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 16,90</div>
+                <button class="order-btn" onclick="orderItem('BATATA FRITA 300G', 'R$ 16,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
+            <!-- Golden Smash -->
+            <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="BATATAAUSTRALIANA350g.png" alt="Golden Smash" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name">BATATA AUSTRALIANA 350G</div>
+                <div class="item-description">Bacon, cliente escolhe cheddar/catupiry®</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 23,90</div>
+                <button class="order-btn" onclick="orderItem('BATATA AUSTRALIANA 350G', 'R$ 23,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
+            <!-- Spicy Royale -->
+            <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="NUGGETS.png" alt="Spicy Royale" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name">NUGGETS</div>
+                <div class="item-description">10 Unidades</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 18,90</div>
+                <button class="order-btn" onclick="orderItem('NUGGETS', 'R$ 18,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
+            <!-- Golden Smash (repetido) -->
+            <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="ONIONRINGS.png" alt="Golden Smash" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name">⭐ ONION RINGS</div>
+                <div class="item-description">10 Unidades</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 18,90</div>
+                <button class="order-btn" onclick="orderItem('ONION RINGS', 'R$ 18,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
+        </div>
+        </div>
+
 
             <!-- Village Premium -->
             <div id="village" class="menu-category">
                 <div class="menu-grid">
+                       <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="MACARRAO.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> MONTE SEU MACARRAO 500G</div>
+                <div class="item-description">Serve uma pessoa</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 30,90</div>
+                <button class="order-btn" onclick="orderItem('MONTE SEU MACARRAO 500G', 'R$ 30,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+                  <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="MACARRAO.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> MACARRÃO COM CARNE EM TIRAS COM CATUPIRY® CREMOSO 500G</div>
+                <div class="item-description">Molho branco, carne em tiras, catupiry® cremoso, cebolinha e queijo mussarela ralado</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 30,90</div>
+                <button class="order-btn" onclick="orderItem('MACARRÃO COM CARNE EM TIRAS COM CATUPIRY® CREMOSO 500G', 'R$ 30,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
+                    <!-- Novo Card 1 -->
+                   <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="MACARRAO.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> MACARRÃO BOLONHESA 500G</div>
+                <div class="item-description">Molho vermelho, carne moída, tomate em cubos, cheiro verde e queijo mussarela ralado</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 30,90</div>
+                <button class="order-btn" onclick="orderItem('MACARRÃO BOLONHESA 500G', 'R$ 30,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
+                    <!-- Novo Card 2 -->
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="MACARRAO.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> MACARRÃO COM COSTELA DESFIADA 500G</div>
+                <div class="item-description">Molho vermelho, costela desfiada, tomate em cubos,  cebolinha e queijo parmesão ralado</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 30,90</div>
+                <button class="order-btn" onclick="orderItem('MACARRÃO COM COSTELA DESFIADA 500G', 'R$ 30,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
+                    <!-- Novo Card 1 -->
+                   <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="MACARRAO.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> MACARRÃO MOLHO BRANCO E TIRAS DE FRANGO 500G</div>
+                <div class="item-description">Molho branco, frango em tiras, bacon em cubos, Brócolis, cebolinha e queijo mussarela ralado</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 30,90</div>
+                <button class="order-btn" onclick="orderItem('MACARRÃO MOLHO BRANCO E TIRAS DE FRANGO 500G', 'R$ 30,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
+                    <!-- Novo Card 2 -->
+               <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="MACARRAO.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> MACARRÃO TIRAS DE PERNIL COM MOLHO BRANCO 500G</div>
+                <div class="item-description">Molho branco, pernil em tiras, tomate em cubos, cebolinha e queijo mussarela ralado</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 30,90</div>
+                <button class="order-btn" onclick="orderItem('MACARRÃO TIRAS DE PERNIL COM MOLHO BRANCO 500G', 'R$ 30,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
+                     <!-- Novo Card 2 -->
                     <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-hamburger"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">👑 Classic Village</div>
-                            <div class="item-description">Hambúrguer de Angus, queijo cheddar artesanal, bacon crocante e molho da casa</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 32,90</div>
-                                <button class="order-btn" onclick="orderItem('Classic Village', '32.90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-cheese"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🧀 Cheese Explosion</div>
-                            <div class="item-description">Blend especial com mix de queijos premium e cebolas caramelizadas</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 36,90</div>
-                                <button class="order-btn" onclick="orderItem('Cheese Explosion', '36.90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="item-image">
+                <img src="yakisoba.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> YAKISOBA 500G</div>
+                <div class="item-description">Macarrão, tiras de carne, tiras de frango, mix de legumes, molho e gergelim</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 30,90</div>
+                <button class="order-btn" onclick="orderItem('YAKISOBA 500G', 'R$ 30,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+
                 </div>
             </div>
 
@@ -904,80 +1084,375 @@
             <div id="smash" class="menu-category">
                 <div class="menu-grid">
                     <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-fire-alt"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🔥 Smash Classic</div>
-                            <div class="item-description">Dois hambúrgueres smash, queijo cheddar, alface, tomate e maionese especial</div>
+            <div class="item-image">
+                <img src="hotdog.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">🔥 HOT DOG SIMPLES</div>
+                            <div class="item-description">Pão de hot dog, 2 salsichas, ketchup, maionese, mostarda e batata palha</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 27,90</div>
-                                <button class="order-btn" onclick="orderItem('Smash Classic', '27.90')">Pedir</button>
+                                <div class="item-price">R$ 19,90</div>
+                                <button class="order-btn" onclick="orderItem('HOT DOG SIMPLES', 'R$ 19,90')">Pedir</button>
                             </div>
                         </div>
                     </div>
                     <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-pepper-hot"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🌶️ Spicy Smash</div>
-                            <div class="item-description">Hambúrguer smash com molho picante, jalapeños e queijo pepper jack</div>
+            <div class="item-image">
+                <img src="hotdog.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">🌶️ HOT DOG ESPECIAL</div>
+                            <div class="item-description">Pao de hot dog, 2 salsichas, bacon, ketchup, maionese, mostarda e batata palha + cheddar ou catupiry®</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 29,90</div>
-                                <button class="order-btn" onclick="orderItem('Spicy Smash', '29.90')">Pedir</button>
+                                <div class="item-price">R$ 24,90</div>
+                                <button class="order-btn" onclick="orderItem('HOT DOG ESPECIAL', 'R$ 24,90')">Pedir</button>
                             </div>
                         </div>
                     </div>
+
+
+
+         
+
+                    <!-- Novo Card 2 -->
+                    <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="yakisoba.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> HOT DOG FRANGO COM CATUPIRY®</div>
+                <div class="item-description">Pão de hot dog, 2 salsichas, frango desfiado, catupiry®, ketchup, maionese, mostarda e batata palha</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 24,90</div>
+                <button class="order-btn" onclick="orderItem('HOT DOG FRANGO COM CATUPIRY®', 'R$ 24,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+                    <!-- Novo Card 2 -->
+                    <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="hotdog.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> HOT DOG COSTELA</div>
+                <div class="item-description">Pão de hot dog, 2 salsichas, costela desfiada, tomate em cubos, ketchup, maionese, mostarda e batata palha</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 28,90</div>
+                <button class="order-btn" onclick="orderItem('HOT DOG COSTELA', 'R$ 28,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
                 </div>
             </div>
 
             <!-- Gourmet Selection -->
             <div id="gourmet" class="menu-category">
                 <div class="menu-grid">
-                    <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-star"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">⭐ Truffle Delight</div>
-                            <div class="item-description">Hambúrguer com infusão de trufas, queijo brie e rúcula</div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="THEVILLAGE.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">⭐ THE VILLAGE</div>
+                            <div class="item-description">Pão brioche, 2x carne, 2x queijo cheddar, 2x bacon, cheddar cremoso, cebola caramelizada e baconese </div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 39,90</div>
-                                <button class="order-btn" onclick="orderItem('Truffle Delight', '39.90')">Pedir</button>
+                                <div class="item-price">R$ 46,90</div>
+                                <button class="order-btn" onclick="orderItem('THE VILLAGE', 'R$ 46,90')">Pedir</button>
                             </div>
                         </div>
                     </div>
                     <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-bacon"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🥓 Bacon Gourmet</div>
-                            <div class="item-description">Hambúrguer com bacon artesanal, queijo gorgonzola e molho de mostarda</div>
+            <div class="item-image">
+                <img src="VILLAGEEGG.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name"> VILLAGE EGG</div>
+                            <div class="item-description">Pão brioche, carne, 2x queijo prato, 2x ovo, bacon e baconese.</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 37,90</div>
-                                <button class="order-btn" onclick="orderItem('Bacon Gourmet', '37.90')">Pedir</button>
+                                <div class="item-price">R$ 29,90</div>
+                                <button class="order-btn" onclick="orderItem('VILLAGE EGG', 'R$ 29,90')">Pedir</button>
                             </div>
                         </div>
                     </div>
+                            <!-- Novo Card 2 -->
+                    <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="VILLAGESALADA.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name"> VILLAGE SALAD</div>
+                <div class="item-description">Pão brioche, carne, queijo prato, picles, cebola roxa, alface, tomate e molho village.</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 33,90</div>
+                <button class="order-btn" onclick="orderItem('VILLAGE SALAD', 'R$ 33,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+             <!-- Novo Card 2 -->
+                    <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="VILLAGECHICKEN.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name">VILLAGE CHICKEN</div>
+                <div class="item-description">Pão brioche, frango grelhado, queijo, bacon, catupiry®, alface e tomate</div>
+                <div class="item-footer">
+                <div class="item-price">R$ 31,90</div>
+                <button class="order-btn" onclick="orderItem('VILLAGE CHICKEN', 'R$ 31,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
+             <!-- Novo Card 2 -->
+                    <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="VILLAGEBURGER.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                <div class="item-name">VILLAGE BURGUER</div>
+                <div class="item-description">Pão brioche, carne, queijo cheddar ou queijo prato e maionese </div>
+                <div class="item-footer">
+                <div class="item-price">R$ 27,90</div>
+                <button class="order-btn" onclick="orderItem('VILLAGE BURGUER', 'R$ 27,90')">Pedir</button>
+                </div>
+            </div>
+            </div>
                 </div>
             </div>
 
             <!-- Supremo Elite -->
             <div id="supremo" class="menu-category">
                 <div class="menu-grid">
-                    <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-gem"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">💎 Supremo Prime</div>
-                            <div class="item-description">Hambúrguer Wagyu, foie gras, molho de vinho tinto e cebolas caramelizadas</div>
+                      <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="DUBLE.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">💎 DOUBLE</div>
+                            <div class="item-description">Pão brioche, 2x carne, 2x queijo cheddar, bacon e baconese</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 59,90</div>
-                                <button class="order-btn" onclick="orderItem('Supremo Prime', '59.90')">Pedir</button>
+                                <div class="item-price">R$ 34,90</div>
+                                <button class="order-btn" onclick="orderItem('DOUBLE', 'R$ 34,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="MAGNIFICO.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 MAGNIFICO</div>
+                            <div class="item-description">Pão bioche, carne, queijo cheddar, bacon, alface, tomate, cebola roxa, picles e molho village.</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 27,90</div>
+                                <button class="order-btn" onclick="orderItem('MAGNIFICO', 'R$ 27,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="OKLAHOMA.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 OKLAHOMA</div>
+                            <div class="item-description">Pão brioche, 2x carne, queijo cheddar e cebola grelhada</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 29,90</div>
+                                <button class="order-btn" onclick="orderItem('OKLAHOMA', 'R$ 29,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="BACON.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 BACON</div>
+                            <div class="item-description">pao brioche, carne, queijo cheddar, bacon, baconese e cebola caramelizada</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 26,90</div>
+                                <button class="order-btn" onclick="orderItem('BACON', 'R$ 26,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="CHEDDARECATUPIRY.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 CHEDDAR/CATUPIRY®</div>
+                            <div class="item-description">Pão brioche, carne, queijo cheddar e chedar cremoso ou catupiry®</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 22,90</div>
+                                <button class="order-btn" onclick="orderItem('CHEDDAR/CATUPIRY®', 'R$ 22,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="COSTELAGOURMET.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 COSTELA GOURMET</div>
+                            <div class="item-description">Pão brioche, carne,queijo prato, costela desfiada, catupiry®  e alho frito.</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 41,90</div>
+                                <button class="order-btn" onclick="orderItem('COSTELA GOURMET', 'R$ 41,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="PERNILGOURMET.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 PERNIL GOURMET</div>
+                            <div class="item-description">Pão brioche, carne, pernil, queijo prato, cebola roxa e barbecue</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 36,90</div>
+                                <button class="order-btn" onclick="orderItem('PERNIL GOURMET', 'R$ 36,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="ONIONGOURMET.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 ONION GOURMET</div>
+                            <div class="item-description">Pão brioche, carne, queijo cheddar, bacon, onion e barbecue.</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 34,90</div>
+                                <button class="order-btn" onclick="orderItem('ONION GOURMET', 'R$ 34,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="CATUPIRYCROCANTE.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 CATUPIRY® CROCANTE</div>
+                            <div class="item-description">Pão brioche, carne, catupiry® empanado, queijo prato, bacon e maionese</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 39,90</div>
+                                <button class="order-btn" onclick="orderItem('CATUPIRY® CROCANTE', 'R$ 39,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="CHICKENCROCANTE.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 CHICKEN CROCANTE</div>
+                            <div class="item-description">Pão brioche, frango empanado, queijo prato, alface, tomate e maionese defumada ou mostarda e mel</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 36,90</div>
+                                <button class="order-btn" onclick="orderItem('CHICKEN CROCANTE', 'R$ 36,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="XDOG.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 X DOG</div>
+                            <div class="item-description">Pão com gergelim,  carne, queijo prato, bacon, 2x salsicha, batata palha, alface, tomate e maionese</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 36,90</div>
+                                <button class="order-btn" onclick="orderItem('X DOG', 'R$ 36,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="XBACON.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 X BACON</div>
+                            <div class="item-description">Pão com gergelim, carne, queijo prato, bacon, alface, tomate e maionese</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 27,90</div>
+                                <button class="order-btn" onclick="orderItem('X BACON', 'R$ 27,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="XEGG.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 X EGG</div>
+                            <div class="item-description">Pão com gergelim, carne, queijo prato, ovo, alface, tomate e maionese</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 25,90</div>
+                                <button class="order-btn" onclick="orderItem('X EGG', 'R$ 25,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="XSALADA.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 X SALADA</div>
+                            <div class="item-description">Pão com gergelim, carne, queijo prato, alface, tomate e  maionese</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 23,90</div>
+                                <button class="order-btn" onclick="orderItem('X SALADA', 'R$ 23,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="XBURGUER.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 X BURGUER</div>
+                            <div class="item-description">Pão com gergelim, carne, queijo prato e maionese</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 22,90</div>
+                                <button class="order-btn" onclick="orderItem('X BURGUER', 'R$ 22,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="COMBOKIDS.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 COMBO KIDS</div>
+                            <div class="item-description">Pão brioche, carne, queijo cheddar e ketchup. Acompanha: suco ou refri e batata ou nuggets + fini	</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 25,90</div>
+                                <button class="order-btn" onclick="orderItem('COMBO KIDS', 'R$ 25,90')">Pedir</button>
                             </div>
                         </div>
                     </div>
                     <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-crown"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">👑 Royal Elite</div>
-                            <div class="item-description">Blend premium com queijo artesanal, trufas negras e molho especial</div>
+            <div class="item-image">
+                <img src="SUPREMO1.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 SUPREMO 1</div>
+                            <div class="item-description">Pão brioche, 3x carne, 3x queijo cheddar, 3x bacon, cheddar cremoso</div>
                             <div class="item-footer">
-                                <div class="item-price">R$ 54,90</div>
-                                <button class="order-btn" onclick="orderItem('Royal Elite', '54.90')">Pedir</button>
+                                <div class="item-price">R$ 61,90</div>
+                                <button class="order-btn" onclick="orderItem('SUPREMO 1', 'R$ 61,90')">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item premium-border">
+            <div class="item-image">
+                <img src="supremo2.png" alt="Asinhas Crocantes" class="item-img" />
+            </div>
+            <div class="item-content">
+                            <div class="item-name">👑 SUPREMO 2</div>
+                            <div class="item-description">Pão brioche, 3x carne, 3x queijo cheddar, 3x bacon, 3x ovo</div>
+                            <div class="item-footer">
+                                <div class="item-price">R$ 66,90</div>
+                                <button class="order-btn" onclick="orderItem('SUPREMO 2', 'R$ 66,90')">Pedir</button>
                             </div>
                         </div>
                     </div>
@@ -986,31 +1461,371 @@
 
             <!-- Bebidas -->
             <div id="bebidas" class="menu-category">
-                <div class="menu-grid">
-                    <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-glass-martini"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🥤 Milkshake Artesanal</div>
-                            <div class="item-description">Milkshake cremoso de baunilha com chantilly artesanal</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 18,90</div>
-                                <button class="order-btn" onclick="orderItem('Milkshake Artesanal', '18.90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="menu-item premium-border">
-                        <div class="item-image"><i class="fas fa-beer"></i></div>
-                        <div class="item-content">
-                            <div class="item-name">🍺 Cerveja Artesanal</div>
-                            <div class="item-description">Cerveja IPA artesanal com notas cítricas</div>
-                            <div class="item-footer">
-                                <div class="item-price">R$ 22,90</div>
-                                <button class="order-btn" onclick="orderItem('Cerveja Artesanal', '22.90')">Pedir</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="menu-grid">
+
+    <!-- Coca Cola 1L -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="coca.png" alt="Coca Cola 1L">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Coca Cola 1L</div>
+        <div class="item-description">Refrigerante tradicional Coca-Cola 1 litro</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 10,00</div>
+          <button class="order-btn" onclick="orderItem('Coca Cola 1L', '10.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coca Cola 2L -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="coca.png" alt="Coca Cola 2L">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Coca Cola 2L</div>
+        <div class="item-description">Refrigerante tradicional Coca-Cola 2 litros</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 15,00</div>
+          <button class="order-btn" onclick="orderItem('Coca Cola 2L', '15.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coca Cola Zero 2L -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="cocazero.png" alt="Coca Cola Zero 2L">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Coca Cola Zero 2L</div>
+        <div class="item-description">Coca-Cola Zero sem açúcar 2 litros</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 15,00</div>
+          <button class="order-btn" onclick="orderItem('Coca Cola Zero 2L', '15.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fanta Laranja 2L -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="fantalaranja.png" alt="Fanta Laranja 2L">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Fanta Laranja 2L</div>
+        <div class="item-description">Fanta Laranja 2 litros, sabor intenso</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 15,00</div>
+          <button class="order-btn" onclick="orderItem('Fanta Laranja 2L', '15.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sprite 2L -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="sprite.png" alt="Sprite 2L">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Sprite 2L</div>
+        <div class="item-description">Sprite 2 litros, sabor cítrico e refrescante</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 15,00</div>
+          <button class="order-btn" onclick="orderItem('Sprite 2L', '15.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coca Cola 600ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="coca.png" alt="Coca Cola 600ML">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Coca Cola 600ML</div>
+        <div class="item-description">Coca-Cola 600ml gelada</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 8,00</div>
+          <button class="order-btn" onclick="orderItem('Coca Cola 600ML', '8.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coca Cola Zero 600ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="cocazero.png" alt="Coca Cola Zero 600ML">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Coca Cola Zero 600ML</div>
+        <div class="item-description">Coca-Cola Zero sem açúcar 600ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 8,00</div>
+          <button class="order-btn" onclick="orderItem('Coca Cola Zero 600ML', '8.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coca Cola Lata 350ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="cocalata.png" alt="Coca Cola Lata">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Coca Cola Lata 350ML</div>
+        <div class="item-description">Coca-Cola lata 350ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Coca Cola Lata 350ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coca Cola Zero Lata 350ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="cocalatazero.png" alt="Coca Cola Zero Lata">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Coca Cola Zero Lata 350ML</div>
+        <div class="item-description">Coca-Cola Zero em lata 350ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Coca Cola Zero Lata 350ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fanta Laranja Lata 350ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="fantalata.png" alt="Fanta Laranja Lata">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Fanta Laranja Lata 350ML</div>
+        <div class="item-description">Fanta Laranja em lata 350ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Fanta Laranja Lata 350ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fanta Uva Lata 350ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="uvalata.png" alt="Fanta Uva Lata">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Fanta Uva Lata 350ML</div>
+        <div class="item-description">Fanta Uva em lata 350ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Fanta Uva Lata 350ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sprite Lata 350ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="spritelata.png" alt="Sprite Lata">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Sprite Lata 350ML</div>
+        <div class="item-description">Sprite em lata 350ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Sprite Lata 350ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Guaraná Antarctica Lata 350ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="guaranalata.png" alt="Guaraná Antarctica Lata">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Guaraná Antarctica Lata 350ML</div>
+        <div class="item-description">Guaraná Antarctica em lata 350ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Guaraná Antarctica Lata 350ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sprite Zero Lata 350ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="spritelatazero.png" alt="Sprite Zero Lata">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Sprite Zero Lata 350ML</div>
+        <div class="item-description">Sprite Zero em lata 350ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Sprite Zero Lata 350ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coca Cola Mini 200ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="cocamini.png" alt="Coca Cola Mini">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Coca Cola Mini 200ML</div>
+        <div class="item-description">Mini Coca-Cola 200ml gelada</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 3,00</div>
+          <button class="order-btn" onclick="orderItem('Coca Cola Mini 200ML', '3.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coca Cola Mini Zero 200ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="cocaminizero.png" alt="Coca Cola Mini Zero">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Coca Cola Mini Zero 200ML</div>
+        <div class="item-description">Mini Coca-Cola Zero 200ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 3,00</div>
+          <button class="order-btn" onclick="orderItem('Coca Cola Mini Zero 200ML', '3.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sprite Mini 200ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="spritemini.png" alt="Sprite Mini">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Sprite Mini 200ML</div>
+        <div class="item-description">Sprite mini 200ml gelado</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 3,00</div>
+          <button class="order-btn" onclick="orderItem('Sprite Mini 200ML', '3.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fanta Laranja Mini 200ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="fantamini.png" alt="Fanta Laranja Mini">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🥤 Fanta Laranja Mini 200ML</div>
+        <div class="item-description">Fanta Laranja mini 200ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 3,00</div>
+          <button class="order-btn" onclick="orderItem('Fanta Laranja Mini 200ML', '3.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suco Del Valle Uva 450ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="valleuva.png" alt="Suco Del Valle Uva">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🧃 Suco Del Valle Uva 450ML</div>
+        <div class="item-description">Suco Del Valle sabor uva 450ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Suco Del Valle Uva 450ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Suco Kapo Morango 200ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="vallemorango.png" alt="Suco Kapo Morango">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🧃 Suco Kapo Morango 200ML</div>
+        <div class="item-description">Suco Kapo sabor morango 200ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 3,00</div>
+          <button class="order-btn" onclick="orderItem('Suco Kapo Morango 200ML', '3.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Água Sem Gás -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="agua.png" alt="Água Sem Gás">
+      </div>
+      <div class="item-content">
+        <div class="item-name">💧 Água Sem Gás</div>
+        <div class="item-description">Água mineral sem gás</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 5,00</div>
+          <button class="order-btn" onclick="orderItem('Água Sem Gás', '5.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Água Com Gás -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="aguagas.png" alt="Água Com Gás">
+      </div>
+      <div class="item-content">
+        <div class="item-name">💧 Água Com Gás</div>
+        <div class="item-description">Água mineral com gás</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 5,00</div>
+          <button class="order-btn" onclick="orderItem('Água Com Gás', '5.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cerveja Brahma Lata 350ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="brahma.png" alt="Cerveja Brahma">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🍺 Cerveja Brahma Lata 350ML</div>
+        <div class="item-description">Cerveja Brahma Pilsen 350ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Cerveja Brahma Lata 350ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cerveja Original Lata 350ML -->
+    <div class="menu-item premium-border">
+      <div class="item-image">
+        <img src="original.png" alt="Cerveja Original">
+      </div>
+      <div class="item-content">
+        <div class="item-name">🍺 Cerveja Original Lata 350ML</div>
+        <div class="item-description">Cerveja Original 350ml</div>
+        <div class="item-footer">
+          <div class="item-price">R$ 6,00</div>
+          <button class="order-btn" onclick="orderItem('Cerveja Original Lata 350ML', '6.00')">Pedir</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
         </div>
     </section>
 
